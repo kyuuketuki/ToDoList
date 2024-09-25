@@ -17,7 +17,7 @@ http.createServer(function (request, response) {
   console.log("request ", request.url);
   var filePath = "." + request.url;
   if (filePath == "./") {
-    filePath = "../webPage/todolist.html";
+    filePath = "webPage/todolist.html";
   }
 
   var extname = String(path.extname(filePath)).toLowerCase();
