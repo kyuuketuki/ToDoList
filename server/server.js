@@ -8,6 +8,3 @@ http.createServer(function (req, res) {
   res.write(html)
   res.end();
 }).listen(3000); // ポート3000番でコネクションの受け入れを行う
-
-console.log('Server running at http://localhost:3000/');
-console.log('Server running at http://192.168.0.103:3000/');
