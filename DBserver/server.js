@@ -9,6 +9,7 @@ const app = express();
 
 // JSON返信
 app.get("/", (req, res) => {
+    res.set({ 'Access-Control-Allow-Origin': '*' });
     res.status(200).send({ id: 1, message: "メッセージ" });
 });
 
