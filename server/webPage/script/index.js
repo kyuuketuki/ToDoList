@@ -1,7 +1,6 @@
 // DBからタスク一覧取得
 window.onload = function loadTasks(){
-    // fetch('http://13.231.30.42:3000')
-    fetch('http://3.112.50.206:3000')
+    fetch('http://13.231.30.42:3000')
     .then(response => response.json())
     .then(data => console.log(data))
     .catch(error => console.error('Error:', error));
