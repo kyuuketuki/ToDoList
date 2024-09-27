@@ -3,8 +3,6 @@ window.onload = function loadTasks(){
     fetch('http://13.231.30.42:3000')
     .then(response => response.json())
     .then(data => {
-        console.log(data[0]);
-        // viewTask(obj.task);
         for (let i = 0 ; i < data.length ; i++){
             viewTask(data[i].task);
         }
@@ -57,7 +55,14 @@ function inputSubmitButton(){
 
     // タスクリストに追加
     taskList.append(div);
-    console.log("add task!");
+    // console.log("add task!");
+
+    // DBに送信
+    fetch('http://13.231.30.42:3000', {
+        method: "POST",
+        body: JSON.stringify({ task: addTask.value}),
+      })
+    .catch(error => console.error('Error:', error));
 }
 
 // タスク完了
