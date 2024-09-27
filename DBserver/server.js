@@ -12,7 +12,7 @@ app.get("/", (req, res) => {
     // res.set({ 'Access-Control-Allow-Origin': '*' });
     // res.status(200).send({ id: 1, message: "メッセージ" });
 
-    fetch('3.112.50.206')
+    fetch('http://3.112.50.206')
     .then(response => response.json())
     .then(data => {
         res.set({ 'Access-Control-Allow-Origin': '*' });
