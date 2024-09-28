@@ -26,6 +26,7 @@ app.get("/", (req, res) => {
 app.post('/:task', (req, res) => {
     fetch('http://3.112.50.206', {
         method: "POST",
+        mode: 'no-cors',
         body: JSON.stringify({ task: addTask.value}),
     })
     .then(response => response.json())
