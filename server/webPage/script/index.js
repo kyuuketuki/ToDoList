@@ -62,7 +62,7 @@ function inputSubmitButton(){
         headers: {
             "Content-Type": "application/json; charset=utf-8",
         },
-        body: JSON.stringify( {password: addTask.value} )
+        body: JSON.stringify( {task: addTask.value} )
     })
 }
 
