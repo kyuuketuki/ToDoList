@@ -1,6 +1,10 @@
+// インポート
 var http = require("http");
 var fs = require("fs");
 var path = require("path");
+
+// ポート番号を設定
+const portNumber = 5000;
 
 http.createServer(function (request, response) {
   console.log("request ", request.url);
@@ -36,6 +40,6 @@ http.createServer(function (request, response) {
     }
   });
 
-}).listen(80);
+}).listen(portNumber);
 
-console.log('Server running at http://127.0.0.1:1123/');
+console.log(`PortNumber is ${portNumber}`);

@@ -1,10 +1,13 @@
 // DBからタスク一覧取得
 window.onload = function loadTasks(){
     fetch('http://13.231.30.42:3000')
+    // fetch('http://192.168.0.109:3000')
     .then(response => response.json())
     .then(data => {
+        console.log(data)
         for (let i = 0 ; i < data.length ; i++){
             viewTask(data[i].task);
+            console.log(data)
         }
     })
     .catch(error => console.error('Error:', error));
@@ -55,14 +58,31 @@ function inputSubmitButton(){
 
     // タスクリストに追加
     taskList.append(div);
-    // console.log("add task!");
 
     // DBに送信
-    fetch('http://13.231.30.42:3000', {
+    fetch("http://13.231.30.42:3000", {
         method: "POST",
-        body: JSON.stringify({ task: addTask.value}),
-      })
-    .catch(error => console.error('Error:', error));
+        mode: "cors",
+        headers: {
+            "Content-Type": "application/json; charset=utf-8",
+        },
+        body: JSON.stringify(addTask.value)
+    })
+
+    // DBに送信 テスト
+    // var data = {
+    //     firstName: "あああ",
+    //     lastName: "いいい"
+    // }
+    
+    // fetch("http://192.168.0.109:3000", {
+    //     method: "POST",
+    //     mode: "cors",
+    //     headers: {
+    //         "Content-Type": "application/json; charset=utf-8",
+    //     },
+    //     body: JSON.stringify(data)
+    // })
 }
 
 // タスク完了
