@@ -32,6 +32,7 @@ app.get("/", (req, res) => {
     .then(response => response.json())
     .then(data => {
         res.status(200).send(data);
+        console.log(data);
     })
     .catch(error => console.error('Error:', error));
 
@@ -40,15 +41,23 @@ app.get("/", (req, res) => {
     // res.status(200).send({ id: 1, task: "getからのレスポンス" }); 
 });
 
+var jsondata = {
+    task: "発表"
+}
+
 // postリクエスト
 app.post('/', (req, res) => {
     console.log(`POSTリクエストが来た`);
+    console.log(req.body);
     fetch("http://3.112.50.206", {
         method: "POST",
         mode: "cors",
-        headers: {"Content-Type": "application/json; charset=utf-8",},
-        body: JSON.stringify(req.body)
+        headers: {
+            "Content-Type": "application/json; charset=utf-8",
+        },
+        body: JSON.stringify(jsondata)
     })
+    .catch(error => console.error('Error:', error));
 
     // テスト
     // console.log(`POSTリクエストが来た ${req.body}`);
