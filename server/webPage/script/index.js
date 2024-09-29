@@ -1,7 +1,6 @@
 // DBからタスク一覧取得
 window.onload = function loadTasks(){
-    // fetch('http://13.231.30.42:3000')
-    fetch('http://192.168.0.109:3000')
+    fetch('http://13.231.30.42:3000')
     .then(response => response.json())
     .then(data => {
         for (let i = 0 ; i < data.length ; i++){
@@ -56,39 +55,15 @@ function inputSubmitButton(){
 
     // タスクリストに追加
     taskList.append(div);
-
-    // DBに送信
-    // fetch("http://13.231.30.42:3000", {
-    //     method: "POST",
-    //     mode: "cors",
-    //     headers: {
-    //         "Content-Type": "application/json; charset=utf-8",
-    //     },
-    //     body: JSON.stringify({ id: "1", task: addTask.value })
-    // })
-
-    // DBに送信 テスト
-    var data = {
-        task: "発表"
-    }
     
-    fetch("http://192.168.0.109:3000", {
+    fetch("http://13.231.30.42:3000", {
         method: "POST",
         mode: "cors",
         headers: {
             "Content-Type": "application/json; charset=utf-8",
         },
-        body: JSON.stringify(data)
+        body: JSON.stringify( {password: addTask.value} )
     })
-
-    // fetch("http://3.112.50.206/task", {
-    //     method: "POST",
-    //     mode: "cors",
-    //     headers: {
-    //         "Content-Type": "application/json; charset=utf-8",
-    //     },
-    //     body: JSON.stringify(data)
-    // })
 }
 
 // タスク完了
